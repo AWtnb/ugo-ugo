@@ -1,21 +1,18 @@
 <script setup lang="ts">
-defineProps<{ isReversed: boolean }>();
+defineProps<{ asDest: boolean }>();
 </script>
 
 <template>
-  <div class="arrow" :class="{ reversed: isReversed }"><slot></slot></div>
+  <div class="arrow" :class="{ dest: asDest }"><slot></slot></div>
 </template>
 <style scoped>
 .arrow {
   display: block;
 }
-:not(.reversed)::before {
+.dest::before {
   content: "⇒";
 }
-.reversed::after {
+:not(.dest)::after {
   content: "⇒";
-}
-li {
-  list-style: none;
 }
 </style>

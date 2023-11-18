@@ -29,11 +29,11 @@ const diff = computed(() => {
   <div class="container">
     <div class="box">
       <SimpleTextarea v-on:update-content="updateFromContent" :default-val="defaultFrom" />
-      <DiffTable v-if="fromLines.length" :rows="diff.getDestination()" :is-reversed="false" />
+      <DiffTable v-if="fromLines.length" :rows="diff.getDestination()" :is-left-side="true" />
     </div>
     <div class="box">
       <SimpleTextarea v-on:update-content="updateToContent" :default-val="defaultTo" />
-      <DiffTable v-if="toLines.length" :rows="diff.getHistory()" :is-reversed="true" />
+      <DiffTable v-if="toLines.length" :rows="diff.getHistory()" :is-left-side="false" />
     </div>
   </div>
 </template>

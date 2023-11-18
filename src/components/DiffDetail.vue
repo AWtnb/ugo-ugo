@@ -5,7 +5,7 @@ import { DiffEntry, FromEntry, ToEntry } from "../helpers/diff";
 
 const props = defineProps<{
   entry: FromEntry | ToEntry;
-  isReversed: boolean;
+  asDest: boolean;
 }>();
 
 const diffEntries = computed((): DiffEntry[] => {
@@ -19,7 +19,7 @@ const isMulti = computed((): boolean => {
 
 <template>
   <div v-if="diffEntries.length" :class="{ multi: isMulti }" class="diff-box">
-    <Arrowed :class="{ unchanged: de.isUnchanged }" :is-reversed="isReversed" v-for="(de, idx) in diffEntries" :key="idx">{{ de.position }}</Arrowed>
+    <Arrowed :class="{ unchanged: de.isUnchanged }" :as-dest="asDest" v-for="(de, idx) in diffEntries" :key="idx">{{ de.position }}</Arrowed>
   </div>
 </template>
 

@@ -3,7 +3,7 @@ import { FromEntry, ToEntry } from "../helpers/diff.js";
 import DiffDetail from "./DiffDetail.vue";
 const props = defineProps<{
   rows: Array<FromEntry | ToEntry>;
-  isReversed: boolean;
+  isLeftSide: boolean;
 }>();
 </script>
 
@@ -11,14 +11,14 @@ const props = defineProps<{
   <table>
     <tbody>
       <tr v-for="(rowEnt, idx) in props.rows" :key="idx">
-        <td v-if="isReversed" class="diff-info">
-          <DiffDetail :entry="rowEnt" :is-reversed="isReversed" />
+        <td v-if="isLeftSide" class="header">
+          <div>{{ rowEnt.position }}</div>
         </td>
-        <td class="header">{{ rowEnt.position }}</td>
+        <DiffDetail :entry="rowEnt" :as-dest="isLeftSide" />
+        <td v-if="!isLeftSide" class="header">
+          <div>{{ rowEnt.position }}</div>
+        </td>
         <td class="content">{{ rowEnt.text }}</td>
-        <td v-if="!isReversed" class="diff-info">
-          <DiffDetail :entry="rowEnt" :is-reversed="isReversed" />
-        </td>
       </tr>
     </tbody>
   </table>
@@ -36,7 +36,7 @@ td {
   border-right: 1px solid #555;
   border-left: 1px solid #555;
 }
-.header, .diff-info {
+/* .header, .diff-info {
   font-size: 0.7em;
 }
 .content {
@@ -45,5 +45,5 @@ td {
 .header {
   color: gray;
   width: fit-content;
-}
+} */
 </style>
