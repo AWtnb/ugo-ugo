@@ -8,42 +8,35 @@ const props = defineProps<{
 </script>
 
 <template>
-  <table>
-    <tbody>
-      <tr v-for="(rowEnt, idx) in props.rows" :key="idx">
-        <td v-if="isLeftSide" class="header">
-          <div>{{ rowEnt.position }}</div>
-        </td>
+  <div class="conteiner">
+    <div class="row" v-for="(rowEnt, idx) in props.rows" :key="idx">
+      <div class="header">
+        <div v-if="isLeftSide">{{ rowEnt.position }}</div>
         <DiffDetail :entry="rowEnt" :as-dest="isLeftSide" />
-        <td v-if="!isLeftSide" class="header">
-          <div>{{ rowEnt.position }}</div>
-        </td>
-        <td class="content">{{ rowEnt.text }}</td>
-      </tr>
-    </tbody>
-  </table>
+        <div v-if="!isLeftSide">{{ rowEnt.position }}</div>
+      </div>
+      <div class="content">{{ rowEnt.text }}</div>
+    </div>
+  </div>
 </template>
 
 <style scoped>
-table tbody tr:nth-child(odd) {
+.container .row:nth-child(odd) {
   background: #efefef;
 }
-table {
-  border: 2px solid #555;
-}
-td {
-  border: none;
-  border-right: 1px solid #555;
-  border-left: 1px solid #555;
-}
-/* .header, .diff-info {
-  font-size: 0.7em;
-}
-.content {
-  min-width: 5em;
+.row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
 }
 .header {
-  color: gray;
-  width: fit-content;
-} */
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
+  width: 50%;
+}
+.content {
+  width: 50%;
+  border-left: 1px solid;
+}
 </style>

@@ -63,20 +63,27 @@ export class ToEntry {
   }
 }
 
+const toHumanIndex = (idx: number): string => {
+  if (idx === 1) return "1st";
+  if (idx === 2) return "2nd";
+  if (idx === 3) return "3rd";
+  return `${idx}th`;
+};
+
 export class SortDiff {
   private readonly fromEntries: FromEntry[] = [];
   private readonly toEntries: ToEntry[] = [];
   constructor(fromLines: string[], toLines: string[]) {
     this.fromEntries = fromLines.map((line, idx) => {
       const elems = line.split("\t").filter((x) => x.trim().length);
-      const pos = elems.length < 2 ? String(idx + 1) : elems[0];
+      const pos = elems.length < 2 ? toHumanIndex(idx + 1) : elems[0];
       const text = elems.length < 2 ? elems[0] : elems[1];
       const ent = new FromEntry(pos, text);
       return ent;
     });
     this.toEntries = toLines.map((line, idx) => {
       const elems = line.split("\t").filter((x) => x.trim().length);
-      const pos = elems.length < 2 ? String(idx + 1) : elems[0];
+      const pos = elems.length < 2 ? toHumanIndex(idx + 1) : elems[0];
       const text = elems.length < 2 ? elems[0] : elems[1];
       const ent = new ToEntry(pos, text);
       return ent;
