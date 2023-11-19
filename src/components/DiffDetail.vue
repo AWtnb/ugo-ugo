@@ -28,9 +28,6 @@ const isMulti = computed((): boolean => {
 </template>
 
 <style scoped>
-.diff-box {
-  display: block;
-}
 .multi {
   border: 1px solid tomato;
   border-radius: 4px;
