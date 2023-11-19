@@ -44,10 +44,9 @@ const isMulti = computed((): boolean => {
 }
 .new {
   padding: 0 2px;
-  color: red;
-  border: 3px double red;
+  color: tomato;
+  border: 3px double tomato;
   border-radius: 4px;
-  margin-right: 1em;
   font-size: .8em;
 }
 .lost {
@@ -55,7 +54,6 @@ const isMulti = computed((): boolean => {
   color: gray;
   border: 1px dashed gray;
   border-radius: 4px;
-  margin-left: 1em;
   font-size: .8em;
 }
 </style>

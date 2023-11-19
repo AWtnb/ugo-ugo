@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { FromEntry, ToEntry } from "../helpers/diff.js";
 import DiffDetail from "./DiffDetail.vue";
+import ComparedItem from "./ComparedItem.vue";
+
 const props = defineProps<{
   rows: Array<FromEntry | ToEntry>;
   isLeftSide: boolean;
@@ -15,7 +17,7 @@ const props = defineProps<{
         <DiffDetail :entry="rowEnt" :as-dest="isLeftSide" />
         <div v-if="!isLeftSide">{{ rowEnt.position }}</div>
       </div>
-      <div class="content">{{ rowEnt.text }}</div>
+      <ComparedItem :content="rowEnt.text"/>
     </div>
   </div>
 </template>
@@ -27,16 +29,13 @@ const props = defineProps<{
 .row {
   display: flex;
   justify-content: space-between;
-  padding: 4px;
+  padding: 0 4px;
 }
 .header {
   align-items: center;
   justify-content: space-evenly;
   display: flex;
   width: 50%;
-}
-.content {
-  width: 50%;
-  border-left: 1px solid;
+  padding: 2px;
 }
 </style>
