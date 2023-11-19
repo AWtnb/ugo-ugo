@@ -5,8 +5,8 @@ import SimpleTextarea from "./SimpleTextarea.vue";
 import DiffTable from "./DiffTable.vue";
 import Connector from "./Connector.vue";
 
-const defaultFrom = "常陸\t佐竹\n越後\t上杉\n安芸\t毛利";
-const defaultTo = "秋田\t佐竹\n米沢\t上杉\n周防\t毛利";
+const defaultFrom = "A組\tスズキ\nA組\tイマイ\nB組\tトクナガ\nB組\tミキ\nB組\tナカニシ\nC組\tカワムラ\nC組\tフジムラ\nD組\tモチヅキ\nE組\tクリハラ\nE組\tカザマ";
+const defaultTo = "A組\tカワムラ\nA組\tナカニシ\nB組\tトクナガ\nB組\tクリハラ\nB組\tミキ\nC組\tトクナガ\nC組\tモチヅキ\nD組\tフジムラ\nE組\tワタナベ\nE組\tイマイ";
 
 const fromLines: Ref<string[]> = ref([]);
 const updateFromContent = (s: string) => {
