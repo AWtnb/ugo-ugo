@@ -64,10 +64,10 @@ export class ToEntry {
 }
 
 const toHumanIndex = (idx: number): string => {
-  if (idx === 1) return "1st";
-  if (idx === 2) return "2nd";
-  if (idx === 3) return "3rd";
-  return `${idx}th`;
+  if (idx === 1) return "[1st]";
+  if (idx === 2) return "[2nd]";
+  if (idx === 3) return "[3rd]";
+  return `[${idx}th]`;
 };
 
 export class SortDiff {
