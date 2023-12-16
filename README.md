@@ -1,6 +1,5 @@
 # README
 
-Thanks:
+Compare two TSVs and check key-value pair.
 
-
-- [pico css framework](https://github.com/picocss/pico)
+Thanks: [pico css framework](https://github.com/picocss/pico)
